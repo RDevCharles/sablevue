@@ -4,6 +4,10 @@
   color: red;
 }
 
+body{
+  background: linear-gradient(-45deg, #923cb5 0%, #000000 54%)
+}
+
 
 .App-header {
   background-color: #282c34;

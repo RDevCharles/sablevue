@@ -3,7 +3,10 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { firestore } from "../firebase";
 
+import "aos/dist/aos.css";
+
 const NavMenu = () => {
+
 
   const [catResults, setCatResults] = React.useState([]) 
 
@@ -119,7 +122,7 @@ const NavMenu = () => {
       </Router>
                     
 
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', zIndex: 100, position: 'absolute', backgroundColor: '#14141475' }}>
+      <div  style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent:'center', alignSelf:'center', zIndex: 100, position: 'absolute', backgroundColor: '#14141475', width:'100vw ' }}>
         
           
             
@@ -130,7 +133,8 @@ const NavMenu = () => {
         return (
          
           
-          <a href={cRes.linkBusiness}><div style={{ backgroundColor: "white",
+          <a data-aos="fade-up"
+          data-aos-duration="1000" href={cRes.linkBusiness}><div style={{ backgroundColor: "white",
           borderRadius: 20,
           padding: 20,
           listStyle: "none",

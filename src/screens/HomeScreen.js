@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchBar from "../components/SearchBar";
 import firebase from "../firebase";
 import TestScreen from "../screens/TestScreen";
+import '../App.css';
 
 
 const db = firebase.firestore();
