@@ -7,7 +7,9 @@ import NavMenu from "./components/NavBar";
 import About from "./screens/AboutScreen";
 import Submit from "./screens/SubmitScreen";
 import Wishlist from "../src/screens/WishList";
-import TestScreen from "../src/screens/TestScreen"
+import TestScreen from "../src/screens/TestScreen";
+import Privacy from "../src/screens/Privacy";
+import CategoryResults from "./screens/CategoryResults";
 
 
 const App = () => {
@@ -22,6 +24,8 @@ const App = () => {
           <Route path="/submit" component={Submit} />
           <Route path="/wishlist" component={Wishlist} />
           <Route path="/test" component={TestScreen} />
+          <Route path="/privacy" component={Privacy} />
+          <Route path="/categories" component={CategoryResults}/>
         </Switch>
       </Router>
     </div>
