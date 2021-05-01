@@ -134,7 +134,7 @@ const NavMenu = () => {
          
           
           <a data-aos="fade-up"
-          data-aos-duration="1000" href={cRes.linkBusiness}><div style={{ backgroundColor: "white",
+          data-aos-duration="1000" data-aos-offset="0" href={cRes.linkBusiness}><div style={{ backgroundColor: "white",
           borderRadius: 20,
           padding: 20,
           listStyle: "none",
