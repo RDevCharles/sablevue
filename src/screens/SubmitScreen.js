@@ -1,7 +1,4 @@
 import React from "react";
-import firebase from "../firebase";
-import { render } from "@testing-library/react";
-import { createRequire } from "module";
 
 const SubmitScreen = () => {
   return (
@@ -40,13 +37,13 @@ const SubmitScreen = () => {
           type="submit"
           style={{
             display: "flex",
-            
-           width: "90px",
+
+            width: "90px",
             borderRadius: "5px",
             color: "white",
             backgroundColor: "black",
             marginTop: "4rem",
-           
+
             borderColor: "black"
           }}
         >

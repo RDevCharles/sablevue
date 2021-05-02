@@ -106,6 +106,7 @@ class SearchBar extends Component {
                     <img
                       style={{ maxWidth: "10rem", borderRadius: 10 }}
                       src={e.pic}
+                      alt=""
                     />
                   </a>
                   <a href={e.link}>

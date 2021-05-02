@@ -1,39 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 import SearchBar from "../components/SearchBar";
-import firebase from "../firebase";
-import TestScreen from "../screens/TestScreen";
-import '../App.css';
 
+import "../App.css";
 
-const db = firebase.firestore();
-
-
-
-const HomeScreen = ()=> {
-  
-    return (
-      <>
-        <div style={styles.mainContainer}>
-        <p style={{
-                        color: 'white',
-                        position: "absolute",
+const HomeScreen = () => {
+  return (
+    <>
+      <div style={styles.mainContainer}>
+        <p
+          style={{
+            color: "white",
+            position: "absolute",
             fontFamily: "Poiret One, cursive",
-            marginTop: 20, 
-                        
-                    }}>Enter known brands. Find black alternatives</p>
+            marginTop: 20
+          }}
+        >
+          Enter known brands. Find black alternatives
+        </p>
 
-          <SearchBar/>
-   
-
-   </div>
-      </>
-    );
-  }
-
-  
+        <SearchBar />
+      </div>
+    </>
+  );
+};
 
 const styles = {
-
   buttonContainer: {
     margin: "5%"
   },
@@ -79,7 +70,6 @@ const styles = {
   },
 
   image: {
-    
     minWidth: "320px",
     marginTop: 20,
     maxHeight: "26rem",
@@ -107,7 +97,7 @@ const styles = {
   descript: {
     maxWidth: "500px",
     minWidth: "100px",
-    
+
     position: "relative",
     textAlign: "right"
   },
@@ -115,12 +105,11 @@ const styles = {
   mainContainer: {
     display: "flex",
     justifyContent: "center",
-    flexDirection:"column",
+    flexDirection: "column",
     alignItems: "center",
     background: "linear-gradient(-45deg, #923cb5 0%, #000000 54%)",
     height: "100vh",
-      zIndex: 2
-   
+    zIndex: 2
   },
 
   mainCardFlexContainer: {
@@ -134,15 +123,15 @@ const styles = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 10,
     minWidth: 300,
     height: 500,
-    padding:0,
-    margin:30
+    padding: 0,
+    margin: 30
   },
   profileImage: {
-    width:"75%"
+    width: "75%"
   },
 
   headerImage: {
@@ -152,4 +141,3 @@ const styles = {
 
 export default HomeScreen;
 
-//react external links
