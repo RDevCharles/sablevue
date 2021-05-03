@@ -52,7 +52,7 @@ const NavMenu = () => {
               <Nav>
                 <NavDropdown title="Categories" id="basic-nav-dropdown">
                   <NavDropdown.Item
-                    // href="#action/3.1"
+                    
                     onSelect={() => {
                       getFbCategory("clothing");
                     }}
@@ -60,13 +60,22 @@ const NavMenu = () => {
                     Clothing
                   </NavDropdown.Item>
                   <NavDropdown.Item
-                    // href="#action/3.2"
+                    
                     onSelect={() => {
                       getFbCategory("financial");
                       console.log(catResults);
                     }}
                   >
                     Financial
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    
+                    onSelect={() => {
+                      getFbCategory("education");
+                      console.log(catResults);
+                    }}
+                  >
+                    Education
                   </NavDropdown.Item>
 
                   <NavDropdown.Item

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import AsyncSelect from "react-select/async";
 import firebase from "../firebase";
+import "aos/dist/aos.css";
+
 
 const db = firebase.firestore();
 
@@ -91,7 +93,10 @@ class SearchBar extends Component {
 
             {this.state.selectedTag.map(e => {
               return (
-                <li
+                <li 
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-offset="0"
                   style={{
                     backgroundColor: "white",
                     borderRadius: 20,
