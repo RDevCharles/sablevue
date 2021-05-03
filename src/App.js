@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavMenu from "./components/NavBar";
 import About from "./screens/AboutScreen";
 import Submit from "./screens/SubmitScreen";
-import Wishlist from "../src/screens/WishList";
+
 import Privacy from "../src/screens/Privacy";
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
           <Route path="/submit" component={Submit} />
           <Route path="/about" component={About} />
           <Route path="/submit" component={Submit} />
-          <Route path="/wishlist" component={Wishlist} />
+         
           <Route path="/privacy" component={Privacy} />
         </Switch>
       </Router>

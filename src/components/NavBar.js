@@ -29,12 +29,6 @@ const NavMenu = () => {
 
     unsubscribe();
   }
-
-  // if (catResults.length != 0) {
-  //   return (
-  //     <a href='/'>Cancel</a>
-  //   )
-  // }
   return (
     <>
       <Router>
@@ -93,16 +87,23 @@ const NavMenu = () => {
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     onSelect={() => {
+                      getFbCategory("jewelry");
+                    }}
+                  >
+                    Jewelry
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    onSelect={() => {
                       getFbCategory("tech");
                     }}
                   >
                     Tech
                   </NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link href="/about">About</Nav.Link>
+
                 <Nav.Link href="/submit">Submit</Nav.Link>
-                <Nav.Link href="/wishlist">Wishlist</Nav.Link>
-                <Nav.Link href="/privacy">Privacy</Nav.Link>
+                <Nav.Link href="/about">About</Nav.Link>
+                {/* <Nav.Link href="/privacy">Privacy</Nav.Link> */}
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -118,7 +119,7 @@ const NavMenu = () => {
           alignSelf: "center",
           zIndex: 100,
           position: "absolute",
-          backgroundColor: "#14141475",
+          backgroundColor: "black",
           width: "100vw "
         }}
       >
