@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavMenu from "./components/NavBar";
 import About from "./screens/AboutScreen";
 import Submit from "./screens/SubmitScreen";
-
 import Privacy from "../src/screens/Privacy";
+import DealsScreen from "./screens/DealsScreen";
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
           <Route path="/submit" component={Submit} />
           <Route path="/about" component={About} />
           <Route path="/submit" component={Submit} />
-         
+          <Route path="/deals" component={DealsScreen} /> 
           <Route path="/privacy" component={Privacy} />
         </Switch>
       </Router>

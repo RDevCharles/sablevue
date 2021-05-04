@@ -13,11 +13,11 @@ const SubmitScreen = () => {
       <div style={styles.mainSubmitDiv}>
         <div style={styles.mainFormDiv}>
           <div style={styles.submitDescript}>
-            <p style={styles.submitDescriptP}>
+            <h4 style={styles.submitDescriptP}>
               We need innovative companies expanding into new territory. If you
               know of or own a business you think should be added to this search
-              engine please shoot me an email to review.
-            </p>
+              engine please shoot me an email.
+            </h4>
           </div>
         </div>
       </div>
@@ -107,8 +107,8 @@ const styles = {
     borderRadius: "2rem"
   },
   submitDescriptP: {
-    background: "linear-gradient(-45deg, #923cb5 0%, #000000 54%)",
-    color: "white",
+    
+    color: "black",
     borderRadius: "1rem",
     boxShadow: "2px 5px 6px 1px #888888",
     padding: "4rem"

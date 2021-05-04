@@ -2,7 +2,6 @@ import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { firestore } from "../firebase";
-
 import "aos/dist/aos.css";
 
 const NavMenu = () => {
@@ -48,72 +47,70 @@ const NavMenu = () => {
 
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="mr-auto"></Nav>
-              <Nav>
-                <NavDropdown title="Categories" id="basic-nav-dropdown">
-                  <NavDropdown.Item
-                    
-                    onSelect={() => {
-                      getFbCategory("clothing");
-                    }}
-                  >
+            <Nav className="mr-auto"></Nav>
+            <Nav>
+            <NavDropdown title="Categories" id="basic-nav-dropdown">
+              <NavDropdown.Item
+                onSelect={() => {
+                  getFbCategory("clothing");
+                }}
+              >
                     Clothing
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    
-                    onSelect={() => {
-                      getFbCategory("financial");
-                      console.log(catResults);
-                    }}
-                  >
-                    Financial
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    
-                    onSelect={() => {
-                      getFbCategory("education");
-                      console.log(catResults);
-                    }}
-                  >
-                    Education
-                  </NavDropdown.Item>
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onSelect={() => {
+                  getFbCategory("education");
+                  console.log(catResults);
+                }}
+              >
+                Education
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onSelect={() => {
+                  getFbCategory("financial");
+                  console.log(catResults);
+                }}
+              >
+                Financial
+              </NavDropdown.Item>
+             
 
-                  <NavDropdown.Item
-                    // href="#action/3.2"
-                    onSelect={() => {
-                      getFbCategory("food");
-                      console.log(catResults);
-                    }}
-                  >
-                    Food
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onSelect={() => {
-                      getFbCategory("health");
-                    }}
-                  >
-                    Health
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onSelect={() => {
-                      getFbCategory("jewelry");
-                    }}
-                  >
-                    Jewelry
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    onSelect={() => {
-                      getFbCategory("tech");
-                    }}
-                  >
-                    Tech
-                  </NavDropdown.Item>
-                </NavDropdown>
-
-                <Nav.Link href="/submit">Submit</Nav.Link>
-                <Nav.Link href="/about">About</Nav.Link>
-                {/* <Nav.Link href="/privacy">Privacy</Nav.Link> */}
-              </Nav>
+              <NavDropdown.Item
+                // href="#action/3.2"
+                onSelect={() => {
+                  getFbCategory("food");
+                  console.log(catResults);
+                }}
+              >
+                Food
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onSelect={() => {
+                  getFbCategory("health");
+                }}
+              >
+                Health
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onSelect={() => {
+                  getFbCategory("jewelry");
+                }}
+              >
+                Jewelry
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                onSelect={() => {
+                  getFbCategory("tech");
+                }}
+              >
+                Tech
+              </NavDropdown.Item>
+            </NavDropdown>
+<Nav.Link href="/deals">Sign up for crazy deals</Nav.Link>
+            <Nav.Link href="/submit">Submit</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            {/* <Nav.Link href="/privacy">Privacy</Nav.Link> */}
+            </Nav>
             </Navbar.Collapse>
           </Navbar>
         </Switch>
@@ -165,7 +162,6 @@ const NavMenu = () => {
 const styles = {
   logo: {
     margin: 5,
-
     fontFamily: "Poiret One, cursive",
     zIndex: 1,
     textAlign: "center"
