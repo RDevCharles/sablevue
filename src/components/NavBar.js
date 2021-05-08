@@ -49,7 +49,19 @@ const NavMenu = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto"></Nav>
             <Nav>
-            <NavDropdown title="Categories" id="basic-nav-dropdown">
+                <NavDropdown title="Categories" id="basic-nav-dropdown">
+                  
+                <NavDropdown.Item
+                onSelect={() => {
+                  getFbCategory("books");
+                }}
+              >
+                    Books
+              </NavDropdown.Item>
+            
+
+
+
               <NavDropdown.Item
                 onSelect={() => {
                   getFbCategory("clothing");
@@ -76,7 +88,6 @@ const NavMenu = () => {
              
 
               <NavDropdown.Item
-                // href="#action/3.2"
                 onSelect={() => {
                   getFbCategory("food");
                   console.log(catResults);
