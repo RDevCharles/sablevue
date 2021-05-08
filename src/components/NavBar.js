@@ -89,8 +89,17 @@ const NavMenu = () => {
                   getFbCategory("health");
                 }}
               >
-                Health
+                    Health
               </NavDropdown.Item>
+                  
+              <NavDropdown.Item
+                onSelect={() => {
+                  getFbCategory("home");
+                }}
+              >
+                Home
+              </NavDropdown.Item>
+
               <NavDropdown.Item
                 onSelect={() => {
                   getFbCategory("jewelry");

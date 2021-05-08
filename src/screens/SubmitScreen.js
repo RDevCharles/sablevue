@@ -24,15 +24,14 @@ const SubmitScreen = () => {
 
       <form name="contact" method="post" style={styles.form}>
         <input type="hidden" name="form-name" value="contact" />
-        <input type="hidden" name="form-name" value="contact"></input>
         <label style={styles.label}>Your name</label>
-        <input style={styles.formInput} type="text"></input>
+        <input style={styles.formInput} type="text" name="name"></input>
         <label style={styles.label}>Name of business</label>
-        <input style={styles.formInput} type="text"></input>
+        <input style={styles.formInput} type="text" name="businessname"></input>
         <label style={styles.label}>Your relationship to the business</label>
-        <input style={styles.formInput} type="text"></input>
+        <input style={styles.formInput} type="text" name="relationship"></input>
         <label style={styles.label}>A brief description of the business</label>
-        <input style={styles.formInput} type="text"></input>
+        <input style={styles.formInput} type="text" name="description"></input>
         <button
           type="submit"
           style={{

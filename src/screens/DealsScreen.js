@@ -21,14 +21,13 @@ const DealsScreen = () => {
       </div>
 
       <form name="contact" method="post" style={styles.form}>
-        <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="form-name" value="contact"></input>
         <label style={styles.label}>Your name</label>
-        <input style={styles.formInput} type="text"></input>
+        <input style={styles.formInput} type="text" name="name"></input>
         <label style={styles.label}>Your email</label>
-              <input style={styles.formInput} type="text"></input>
+              <input style={styles.formInput} type="text" name="email"></input>
               <div>
-             <label style={styles.label}>Select the categories you would like us to cantact you about</label>
+             <label style={styles.label}>Select the categories you would like us to contact you about</label>
              <div style={{display:'flex', flexDirection:'row', alignItems: 'baseline'}}><label style={styles.label}>Clothing</label>
                   <input style={{marginLeft: 10}} type="checkbox" id="clothing" name="clothing" value="clothing"></input></div>
                   
