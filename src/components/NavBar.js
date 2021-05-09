@@ -75,7 +75,7 @@ const NavMenu = () => {
                   getFbCategory("crypto");
                 }}
               >
-                    Cryto
+                    Crypto
               </NavDropdown.Item>
 
               <NavDropdown.Item
