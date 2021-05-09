@@ -69,6 +69,15 @@ const NavMenu = () => {
               >
                     Clothing
               </NavDropdown.Item>
+                  
+              <NavDropdown.Item
+                onSelect={() => {
+                  getFbCategory("crypto");
+                }}
+              >
+                    Cryto
+              </NavDropdown.Item>
+
               <NavDropdown.Item
                 onSelect={() => {
                   getFbCategory("education");
