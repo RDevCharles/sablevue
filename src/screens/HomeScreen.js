@@ -1,45 +1,14 @@
 import React from "react";
 import "../App.css";
 import SearchBar from "../components/SearchBar";
-import firebase from "../firebase";
-
-import algoliasearch from "algoliasearch/lite";
-import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
-
-import "../App.css";
+import { Button } from "react-bootstrap";
+import TermSearch from "../components/TermSearch";
 
 const HomeScreen = () => {
-
-  const db = firebase.firestore();
-
-  const [showRes, setShowRes] = React.useState("none");
-  const [showAltSearch, setShowAltSearch] = React.useState("block");
+  const [showAltSearch, setShowAltSearch] = React.useState("flex");
   const [showTermSearch, setShowTermSearch] = React.useState("none");
   const [showAltBtn, setShowAltBtn] = React.useState("none");
   const [showSearchBtn, setShowSearchBtn] = React.useState("block");
-
-  React.useEffect(() => {
-    db.collection("Business").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(doc.id, " => ", doc.data());
-      });
-  });
-})
-
-  const Hit = ({ hit }) => (
-    <a href={hit.link}>
-      <img style={{width:40}} src={hit.picBusiness}/>
-      <p style={{ color: "black" }}>{hit.name}</p>
-     
-     
-     
-      
-    </a>
-  );
-  const searchClient = algoliasearch(
-    
-  );
 
   return (
     <>
@@ -54,61 +23,64 @@ const HomeScreen = () => {
         >
           Enter known brands. Find black alternatives
         </p>
-        <div style={{ display: `${showAltSearch}` }}>
+        <div
+          style={{
+            display: `${showAltSearch}`,
+            flexDirection: "column",
+            alignItems: "center",
+            marginTop: "2rem",
+          }}
+        >
           <SearchBar />
+          <Button
+            onClick={() => {
+              setShowTermSearch("flex");
+              setShowAltSearch("none");
+              setShowSearchBtn("none");
+              setShowAltBtn("flex");
+            }}
+            style={{
+              backgroundColor: "#8637a6",
+              color: "white",
+              borderRadius: "5px",
+              borderStyle: "none",
+              outline: 0,
+              display: `${showSearchBtn}`,
+              fontFamily: "Poiret One, cursive",
+            }}
+          >
+            Search by Term
+          </Button>
         </div>
-        <button
-          onClick={() => {
-            setShowAltSearch("block");
-            setShowTermSearch("none");
-            setShowAltBtn("none");
-            setShowSearchBtn("block");
-          }}
-          style={{
-            backgroundColor: "black",
-            color: "white",
-            borderRadius: "5px",
-            borderStyle: "none",
-            outline: 0,
-            display:`${showAltBtn}`
-          }}
-        >
-          Search by Alternative
-        </button>
-        <button
-          onClick={() => {
-            setShowTermSearch("block");
-            setShowAltSearch("none");
-            setShowSearchBtn("none");
-            setShowAltBtn("block");
-          }}
-          style={{
-            backgroundColor: "black",
-            color: "white",
-            borderRadius: "5px",
-            borderStyle: "none",
-            outline: 0,
-            display:`${showSearchBtn}`
-          }}
-        >
-          Search by Term
-        </button>
 
-        <div style={{ display: `${showTermSearch}` }}>
-          <InstantSearch searchClient={searchClient} indexName="businesses">
-            <SearchBox
-              onChange={() => {
-                setShowRes("block");
-              }}
-              onReset={() => {
-                setShowRes("none");
-              }}
-              placeholder="search now"
-            />
-            <div style={{ display: `${showRes}` }}>
-              <Hits hitComponent={Hit} />
-            </div>
-          </InstantSearch>
+        <div
+          style={{
+            display: `${showTermSearch}`,
+            flexDirection: "column",
+            alignItems: "center",
+            marginTop: "2rem",
+          }}
+        >
+          <TermSearch />
+          <Button
+            onClick={() => {
+              setShowTermSearch("none");
+              setShowAltSearch("flex");
+              setShowSearchBtn("flex");
+              setShowAltBtn("none");
+            }}
+            style={{
+              backgroundColor: "#8637a6",
+              color: "white",
+              borderRadius: "5px",
+              borderStyle: "none",
+              outline: 0,
+              display: `${showAltBtn}`,
+              fontFamily: "Poiret One, cursive",
+            }}
+          >
+            Search by Alt
+          </Button>
         </div>
       </div>
     </>
@@ -133,7 +105,6 @@ const styles = {
     top: "15rem",
     color: "black",
     minWidth: "20rem",
-    // position:'absolute',
     listStyle: "none",
     zIndex: 1,
   },
@@ -156,7 +127,6 @@ const styles = {
   listItemCardLink: {
     marginTop: 20,
     position: "relative",
-    // left:35,
     color: "black",
   },
 
@@ -166,7 +136,6 @@ const styles = {
     maxHeight: "26rem",
     borderRadius: 10,
     position: "relative",
-    // left:35,
   },
 
   backgroundImage: {
