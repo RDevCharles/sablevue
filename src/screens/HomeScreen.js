@@ -1,9 +1,46 @@
 import React from "react";
+import "../App.css";
 import SearchBar from "../components/SearchBar";
+import firebase from "../firebase";
+
+import algoliasearch from "algoliasearch/lite";
+import { InstantSearch, SearchBox, Hits } from "react-instantsearch-dom";
 
 import "../App.css";
 
 const HomeScreen = () => {
+
+  const db = firebase.firestore();
+
+  const [showRes, setShowRes] = React.useState("none");
+  const [showAltSearch, setShowAltSearch] = React.useState("block");
+  const [showTermSearch, setShowTermSearch] = React.useState("none");
+  const [showAltBtn, setShowAltBtn] = React.useState("none");
+  const [showSearchBtn, setShowSearchBtn] = React.useState("block");
+
+  React.useEffect(() => {
+    db.collection("Business").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+      });
+  });
+})
+
+  const Hit = ({ hit }) => (
+    <a href={hit.link}>
+      <img style={{width:40}} src={hit.picBusiness}/>
+      <p style={{ color: "black" }}>{hit.name}</p>
+     
+     
+     
+      
+    </a>
+  );
+  const searchClient = algoliasearch(
+    
+  );
+
   return (
     <>
       <div style={styles.mainContainer}>
@@ -12,13 +49,67 @@ const HomeScreen = () => {
             color: "white",
             position: "absolute",
             fontFamily: "Poiret One, cursive",
-            marginTop: 20
+            marginTop: 20,
           }}
         >
           Enter known brands. Find black alternatives
         </p>
+        <div style={{ display: `${showAltSearch}` }}>
+          <SearchBar />
+        </div>
+        <button
+          onClick={() => {
+            setShowAltSearch("block");
+            setShowTermSearch("none");
+            setShowAltBtn("none");
+            setShowSearchBtn("block");
+          }}
+          style={{
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "5px",
+            borderStyle: "none",
+            outline: 0,
+            display:`${showAltBtn}`
+          }}
+        >
+          Search by Alternative
+        </button>
+        <button
+          onClick={() => {
+            setShowTermSearch("block");
+            setShowAltSearch("none");
+            setShowSearchBtn("none");
+            setShowAltBtn("block");
+          }}
+          style={{
+            backgroundColor: "black",
+            color: "white",
+            borderRadius: "5px",
+            borderStyle: "none",
+            outline: 0,
+            display:`${showSearchBtn}`
+          }}
+        >
+          Search by Term
+        </button>
 
-        <SearchBar />
+        <div style={{ display: `${showTermSearch}` }}>
+          <InstantSearch searchClient={searchClient} indexName="businesses">
+            <SearchBox
+              onChange={() => {
+                setShowRes("block");
+              }}
+              onReset={() => {
+                setShowRes("none");
+              }}
+              placeholder="search now"
+            />
+            <div style={{ display: `${showRes}` }}>
+              <Hits hitComponent={Hit} />
+            </div>
+          </InstantSearch>
+        </div>
       </div>
     </>
   );
@@ -26,7 +117,7 @@ const HomeScreen = () => {
 
 const styles = {
   buttonContainer: {
-    margin: "5%"
+    margin: "5%",
   },
 
   logo: {
@@ -34,7 +125,7 @@ const styles = {
     position: "absolute",
     fontFamily: "Poiret One, cursive",
     zIndex: 1,
-    textAlign: "center"
+    textAlign: "center",
   },
 
   searchBar: {
@@ -44,7 +135,7 @@ const styles = {
     minWidth: "20rem",
     // position:'absolute',
     listStyle: "none",
-    zIndex: 1
+    zIndex: 1,
   },
 
   listItemCard: {
@@ -59,14 +150,14 @@ const styles = {
     background: "white",
     width: "auto",
     borderRadius: 20,
-    position: "relative"
+    position: "relative",
   },
 
   listItemCardLink: {
     marginTop: 20,
     position: "relative",
     // left:35,
-    color: "black"
+    color: "black",
   },
 
   image: {
@@ -74,7 +165,7 @@ const styles = {
     marginTop: 20,
     maxHeight: "26rem",
     borderRadius: 10,
-    position: "relative"
+    position: "relative",
     // left:35,
   },
 
@@ -83,7 +174,7 @@ const styles = {
     position: "absolute",
     opacity: ".7",
     width: "100vw",
-    overFlow: "hidden"
+    overFlow: "hidden",
   },
 
   backgroundImage2: {
@@ -91,7 +182,7 @@ const styles = {
     display: "none",
     position: "absolute",
     opacity: ".2",
-    backgroundSize: "auto"
+    backgroundSize: "auto",
   },
 
   descript: {
@@ -99,7 +190,7 @@ const styles = {
     minWidth: "100px",
 
     position: "relative",
-    textAlign: "right"
+    textAlign: "right",
   },
 
   mainContainer: {
@@ -109,13 +200,13 @@ const styles = {
     alignItems: "center",
     background: "linear-gradient(-45deg, #923cb5 0%, #000000 54%)",
     height: "100vh",
-    zIndex: 2
+    zIndex: 2,
   },
 
   mainCardFlexContainer: {
     display: "flex",
     flexDirection: "row",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
 
   cardContainer: {
@@ -128,16 +219,15 @@ const styles = {
     minWidth: 300,
     height: 500,
     padding: 0,
-    margin: 30
+    margin: 30,
   },
   profileImage: {
-    width: "75%"
+    width: "75%",
   },
 
   headerImage: {
-    width: "20%"
-  }
+    width: "20%",
+  },
 };
 
 export default HomeScreen;
-
